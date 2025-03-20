@@ -14,7 +14,7 @@ function Header() {
   };
 
   return (
-    <header className={isFading ? 'fade-out' : ''}>
+    <header className={`header ${isFading ? 'fade-out' : ''} sticky`}>
       <div className="imgLogo">
         <img src="./img/notaskLogoBranco.png" alt="logoImg" />
       </div>

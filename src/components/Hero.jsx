@@ -1,20 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { GoArrowRight } from 'react-icons/go';
 import SplitText from './SplitText'; // Certifique-se de importar o SplitText
 import '../styles/hero.css';
 import '../styles/aurora.css';
 import Aurora from '../components/Aurora.jsx';
-import FadeContent from './FadeContent'
+import FadeContent from './FadeContent';
+import { useNavigate } from 'react-router-dom';
 
 function Hero() {
+    const navigate = useNavigate(); // Use useNavigate para obter a função de navegação
+    const [isFading, setIsFading] = useState(false);
+
+    const handleLoginClick = () => {
+        setIsFading(true);
+        setTimeout(() => {
+            navigate('/login');
+        }, 1000); // Adicione um atraso de 1 segundo (1000 milissegundos)
+    };
+
     const handleAnimationComplete = () => {
-        console.log('All letters have animated!');
+        // Função vazia ou adicione lógica conforme necessário
     };
 
     return (
-        <section className='hero'>
+        <section className={`hero ${isFading ? 'fade-out' : ''}`}>
             <Aurora
-                colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
+                colorStops={["#006837", "#FBB03B", "#C1272D"]}
                 blend={0.5}
                 amplitude={1.0}
                 speed={0.5}
@@ -23,7 +34,7 @@ function Hero() {
                 <div className="direita">
                     <div className="texto">
                         <SplitText
-                            text ="O jeito simples para tarefas complexas"
+                            text="O jeito simples para tarefas complexas"
                             className="split-text-custom text-2xl font-semibold text-center"
                             delay={50}
                             animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
@@ -35,16 +46,15 @@ function Hero() {
                         />
                     </div>
                     <div className="hero-btn">
-                        <button>Começar <GoArrowRight className='icon' /></button>
+                        <button onClick={handleLoginClick}>Começar <GoArrowRight className='icon' /></button>
                     </div>
                 </div>
                 <div className="esquerda">
                     <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
-                    <img className='img-small' src="./img/telaTask-hero-12.png" alt="logoImg" />
+                        <img className='img-small' src="./img/telaTask-hero-12.png" alt="logoImg" />
                     </FadeContent>
                 </div>
             </div>
-
         </section>
     );
 }

@@ -5,30 +5,34 @@
     border-radius: 16px;
     width: 70%;
     align-items: center;
-    /* gap: 50%; */
-    justify-content: space-around;
+    gap: 40px;
+    justify-content: space-between;
+}
+.contCard{
+    width: 80%;
 }
 
 .cardTitulo {
     font-family: 'neulis-sans', sans-serif;
     font-weight: 500;
     font-style: normal;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .cardDescricao {
+    /* width: 80%; */
     font-family: 'neulis-sans', sans-serif;
     font-weight: 100;
     font-style: normal;
     font-size: 1rem;
 }
 
-.cardImage {
+.cardImgContainer {
     width: 20%;
-    height: 100%;
-    border-radius: 10px;
+    height: auto;
 }
 
-.cardImage img {
-    width: 30%;
+.cardImgContainer img {
+    width: 100%;
+    height: auto;
 }

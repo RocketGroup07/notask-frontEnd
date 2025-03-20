@@ -5,7 +5,9 @@ import '../styles/global.css'
 function CardBeneficio({ title, descricao, image }) {
     return (
         <div className="card">
-            {image && <img src={image} alt={title} className="cardImage" />}
+            <div className="cardImgContainer">
+              {image && <img src={image} alt={title} className="cardImage" />}  
+            </div>
             <div className="contCard">
                 <div className="cardTitulo">
                 {title}
