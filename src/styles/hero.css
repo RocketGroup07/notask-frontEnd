@@ -35,9 +35,10 @@ h1 {
     font-size: 1rem;
 
 }
-.hero-btn button:hover{
+
+.hero-btn button:hover {
     background-color: white;
-        color: black;
+    color: black;
 }
 
 
@@ -57,4 +58,19 @@ h1 {
     /* Defina a largura desejada */
     height: auto;
     /* Mantém a proporção da imagem */
+}
+
+@media (max-width: 768px) {
+    .direita {
+        width: 90%;
+    }
+
+    .container-hero {
+        display: flex;
+        margin: 0px 40px 80px 40px;
+    }
+    .direitaSection {
+        width: 100%;
+    }
+    
 }

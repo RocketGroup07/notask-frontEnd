@@ -33,5 +33,13 @@
     width: 50%;
     display: flex;
     height: auto;
-    margin-bottom: 200px;
+}
+
+@media (max-width: 768px) {
+    .esquerdaSection {
+        width: 90%;
+        display: flex;
+        height: auto;
+    }
+
 }
