@@ -5,13 +5,23 @@
     margin: auto;
 
 }
-.direitaSection{
+
+.direitaSection {
     width: 50%;
+
 }
-.card{
+
+.card {
     color: white;
 }
-.esquerdaSection{
+
+.card-container {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.esquerdaSection {
     width: 50%;
     display: flex;
     height: auto;

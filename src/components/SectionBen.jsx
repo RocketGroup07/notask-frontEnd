@@ -12,12 +12,12 @@ function SectionBen() {
           <CardBeneficio
             title="Simples de usar"
             descricao="Organize suas tarefas de forma rápida e fácil."
-            image="/public/img/logoNotask.png" // Substitua pelo caminho da imagem, se necessário 
+            image="\img\logoNotask.png" // Substitua pelo caminho da imagem, se necessário 
           />
           <CardBeneficio
-            title="Organização"
-            descricao="Organize suas tarefas de forma rápida e fácil."
-            image="/public/img/iconTable.png" // Substitua pelo caminho da imagem, se necessário
+            title="Acompanhe o progresso"
+            descricao="Vizualize tarefas de forma clara"
+            image="\img\iconTable.png" // Substitua pelo caminho da imagem, se necessário
           />
         </div>
         
