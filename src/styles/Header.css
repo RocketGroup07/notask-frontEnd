@@ -13,8 +13,8 @@ header {
     position: -webkit-sticky; /* Para compatibilidade com Safari */
     position: sticky;
     top: 0;
-    z-index: 1000; /* Certifique-se de que o header fique acima de outros elementos */
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+    z-index: 1000; 
+    background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px); /* Efeito de desfoque */
     -webkit-backdrop-filter: blur(10px);
   }
