@@ -15,7 +15,7 @@ function Hero() {
         setIsFading(true);
         setTimeout(() => {
             navigate('/login');
-        }, 1000); // Adicione um atraso de 1 segundo (1000 milissegundos)
+        }, 2000); // Adicione um atraso de 1 segundo (1000 milissegundos)
     };
 
     const handleAnimationComplete = () => {
@@ -50,7 +50,7 @@ function Hero() {
                     </div>
                 </div>
                 <div className="esquerda">
-                    <FadeContent blur={true} duration={1000} easing="ease-out" initialOpacity={0}>
+                    <FadeContent blur={false} duration={1000} easing="ease-out" initialOpacity={0}>
                         <img className='img-small' src="./img/telaTask-hero-12.png" alt="logoImg" />
                     </FadeContent>
                 </div>

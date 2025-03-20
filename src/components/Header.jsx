@@ -10,7 +10,7 @@ function Header() {
     setIsFading(true);
     setTimeout(() => {
       navigate('/login');
-    }, 1000); // Adicione um atraso de 1 segundo (1000 milissegundos)
+    }, 2000); // Adicione um atraso de 1 segundo (1000 milissegundos)
   };
 
   return (
