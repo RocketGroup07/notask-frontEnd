@@ -63,6 +63,7 @@ h1 {
 @media (max-width: 768px) {
     .direita {
         width: 90%;
+        gap: 40px;
     }
 
     .container-hero {
