@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
 import { GoArrowRight } from "react-icons/go";
-import { useNavigate } from 'react-router-dom'; // Importe useNavigate
+import { useNavigate } from 'react-router-dom'; // Importado useNavigate
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
+
+
+
+NProgress.configure({ showSpinner: false, speed: 500 });
 
 function Header() {
-  const navigate = useNavigate(); // Use useNavigate para obter a função de navegação
+  const navigate = useNavigate(); // useNavigate para obter a função de navegação
   const [isFading, setIsFading] = useState(false);
 
   const handleLoginClick = () => {
     setIsFading(true);
+    NProgress.start();
     setTimeout(() => {
       navigate('/login');
-    }, 2000); // Adicione um atraso de 1 segundo (1000 milissegundos)
+      NProgress.done();
+    }, 1000); // atraso em milissegundos
   };
 
   return (
@@ -25,7 +33,7 @@ function Header() {
       </div>
       <div className="buttons">
         <button className='login' onClick={handleLoginClick}>Entre</button> {/* Use a função handleLoginClick */}
-        <button className='cadastro'>Cadastre-se <GoArrowRight /></button>
+        <button className='cadastro' onClick={handleLoginClick}>Cadastre-se <GoArrowRight /></button>
       </div>
     </header>
   );

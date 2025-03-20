@@ -6,6 +6,8 @@ import '../styles/aurora.css';
 import Aurora from '../components/Aurora.jsx';
 import FadeContent from './FadeContent';
 import { useNavigate } from 'react-router-dom';
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 
 function Hero() {
     const navigate = useNavigate(); // Use useNavigate para obter a função de navegação
@@ -13,13 +15,16 @@ function Hero() {
 
     const handleLoginClick = () => {
         setIsFading(true);
+        NProgress.start();
         setTimeout(() => {
             navigate('/login');
-        }, 2000); // Adicione um atraso de 1 segundo (1000 milissegundos)
+            NProgress.done();
+        }, 900); // Adiciona segundos em milésimos
     };
 
     const handleAnimationComplete = () => {
-        // Função vazia ou adicione lógica conforme necessário
+        // Função vazia para adicionar lógica conforme necessário
+
     };
 
     return (
