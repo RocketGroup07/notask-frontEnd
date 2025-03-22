@@ -5,8 +5,8 @@ function Input({ placeholder, label, id }) {
     <div>
       <label htmlFor={id}>
         {label}
-        <input type="text" placeholder={placeholder} id={id} />
       </label>
+      <input type="text" placeholder={placeholder} id={id} />
     </div>
   )
 }

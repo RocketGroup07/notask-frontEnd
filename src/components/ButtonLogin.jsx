@@ -1,9 +1,9 @@
 import React from 'react'
 
-function ButtonLogin({ type, value, onClick }) {
+function ButtonLogin({ type, value, onClick, className }) {
   return (
     <div>
-      <button onClick={onClick} type={type} style={{ width: '100%' }}>
+      <button className={className} onClick={onClick} type={type}>
         {value}
       </button>
     </div>
