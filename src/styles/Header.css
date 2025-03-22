@@ -62,19 +62,31 @@ header {
     background-color: var(--corFundo);
     color: white;
     border: 1px solid white;
+    transition: all 0.8s;
+}
+.login:hover{
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    
 }
 
 .cadastro {
     background-color: white;
     color: var(--corFundo);
-    border: none;
+    border: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: 0.8s all;
 }
-.cadastro > path{
-    color: black;
+.cadastro:hover{
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+    
 }
+
 .fade-out {
     animation: fadeOut 1s forwards;
   }
