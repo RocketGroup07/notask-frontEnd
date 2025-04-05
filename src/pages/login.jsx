@@ -4,7 +4,7 @@ import '../styles/global.css';
 
 function Login() {
   return (
-    <div>
+    <div className="login-container">
         <FormLogin />
     </div>
   )

@@ -1,0 +1,21 @@
+
+.form-cadastro{
+    margin: auto;
+    width: 25%;
+    border-radius: 8px;
+    background-color: rgb(36, 36, 36);
+    padding: 8px;
+    align-items: center;
+    text-align: center;
+    font-family: "neulis-sans", sans-serif;
+    border: 2px solid white;
+    color: white;
+}
+
+
+.cadastro-container {
+    min-height: 100vh; /* Garante que o fundo cubra toda a altura da tela */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

@@ -1,12 +1,20 @@
-form{
+.form-login{
     margin: auto;
     width: 25%;
     border-radius: 8px;
-    background-color: #ccc;
+    background-color: rgb(36, 36, 36);
     padding: 8px;
     align-items: center;
     text-align: center;
     font-family: "neulis-sans", sans-serif;
+    border: 2px solid white;
+    color: white;
+}
+
+.login-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .text-content {
@@ -15,28 +23,13 @@ form{
     gap: 12px;
     display: flex;
     flex-direction: column;
-}
 
-.inputs{
-    width: 80%;
-    margin: 16px auto;
-    margin-top: 32px;
-
-    & input{
-        padding: 8px;
-        width: 100%;
-        margin: 0 auto 16px auto;
-        border-radius: 4px;
-        border: none;
-        outline: none;
+    > span{
+        text-align: center;
     }
 }
 
-.inputs label {
-    display: block;
-    text-align: left;
-    margin: 12px 0 0 0;
-}
+
 
 .link {
     text-align: right;
@@ -45,19 +38,18 @@ form{
 
     & a{
         text-decoration: none;
-        color: black;
-        text-decoration: underline;
+        color: white;
+        text-decoration: underline transparent;
+        transition: 0.2s ease;
+
+        &:hover{
+            text-decoration: underline white 2px;
+            transition: 0.2s ease;
+        }
     }
 }
 
-.button{
-    width: 80%;
-    border-radius: 4px;
-    border: none;
-    padding: 8px;
-    cursor: pointer;
-    margin-bottom: 16px;
-}
+
 
 
 

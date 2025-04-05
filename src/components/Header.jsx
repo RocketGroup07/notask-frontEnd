@@ -21,6 +21,15 @@ function Header() {
     }, 1000); // atraso em milissegundos
   };
 
+  const handleCadastroClick = () => {
+    setIsFading(true);
+    NProgress.start();
+    setTimeout(() => {
+      navigate('/cadastro'); // Navega para a rota de cadastro
+      NProgress.done();
+    }, 1000); // atraso em milissegundos
+  };
+
   return (
     <header className={`header ${isFading ? 'fade-out' : ''} sticky`}>
       <div className="imgLogo">
@@ -33,7 +42,7 @@ function Header() {
       </div>
       <div className="buttons">
         <button className='login' onClick={handleLoginClick}>Entre</button> {/* Use a função handleLoginClick */}
-        <button className='cadastro' onClick={handleLoginClick}>Cadastre-se <GoArrowRight /></button>
+        <button className='cadastro' onClick={handleCadastroClick}>Cadastre-se <GoArrowRight /></button>
       </div>
     </header>
   );
