@@ -2,6 +2,7 @@ import React from 'react'
 import Input from "../components/input.jsx"
 import ButtonLogin from "../components/ButtonLogin.jsx"
 import '../styles/formLogin.css'
+import { Link } from 'react-router-dom'
 
 function FormLogin() {
     return (
@@ -23,12 +24,12 @@ function FormLogin() {
                     id="senha" />
             </div>
             <div className='link'>
-                <a href="#">Esqueceu a senha?</a>
+                <Link href={"/Home"}>Esqueceu a Senha?</Link>
             </div>
             <ButtonLogin className="button" type="submit" value="Entrar" />
             <span className='text-content'>Não possui uma conta?
                 <span className='link'>
-                    <a href="./pages/Cadastro.jsx">Crie uma!</a>
+                    <Link to={"/Cadastro"}> Crie uma conta</Link>
                 </span>
             </span>
         </form>

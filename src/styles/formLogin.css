@@ -1,30 +1,52 @@
-.form-login{
+@keyframes moveBackground {
+    0% {
+        background-position: 0% 55%;
+    }
+
+    100% {
+        background-position: 0% 45%;
+    }
+}
+
+
+.form-login {
     margin: auto;
-    width: 25%;
+    width: 20%;
     border-radius: 8px;
-    background-color: rgb(36, 36, 36);
+    background: linear-gradient(0deg, #000000 60%, #5e5b5b);
     padding: 8px;
     align-items: center;
     text-align: center;
     font-family: "neulis-sans", sans-serif;
-    border: 2px solid white;
-    color: white;
+    border: 1px solid rgba(184, 184, 184, 0.151);
+    color: rgb(216, 216, 216);
+    background-size: 200% 200%;
+    animation: moveBackground 2s infinite alternate;
 }
 
-.login-container{
+h1{
+    color: rgb(216, 216, 216);
+}
+
+span{
+    font-size: 12px;
+}
+
+.login-container {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .text-content {
-    margin: 16px auto;
+    margin: 8px auto;
     width: 80%;
     gap: 12px;
     display: flex;
     flex-direction: column;
 
-    > span{
+    >span {
         text-align: center;
     }
 }
@@ -36,21 +58,16 @@
     width: 80%;
     margin: 0 auto 24px auto;
 
-    & a{
+    & a {
         text-decoration: none;
-        color: white;
+        color: rgb(216, 216, 216);
         text-decoration: underline transparent;
         transition: 0.2s ease;
+        font-size: 12px;
 
-        &:hover{
-            text-decoration: underline white 2px;
+        &:hover {
+            text-decoration: underline rgb(216, 216, 216) 1px;
             transition: 0.2s ease;
         }
     }
 }
-
-
-
-
-
-
