@@ -28,15 +28,16 @@ h1{
     color: rgb(216, 216, 216);
 }
 
-span{
-    font-size: 12px;
-}
 
 .login-container {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.font-size{
+    font-size: 12px;
 }
 
 .text-content {
