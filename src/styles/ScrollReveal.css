@@ -20,3 +20,9 @@
     color: white;
     width: auto;
   }
+@media (max-width:768px){
+  .scroll-reveal-text{
+    font-size: 25pt;
+    line-height: 1;
+  }
+}
