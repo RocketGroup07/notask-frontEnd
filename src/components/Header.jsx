@@ -22,22 +22,11 @@ function Header() {
     }, 1000); // atraso em milissegundos
   };
 
-<<<<<<< HEAD
-  const handleCadastroClick = () => {
-    setIsFading(true);
-    NProgress.start();
-    setTimeout(() => {
-      navigate('/cadastro'); // Navega para a rota de cadastro
-      NProgress.done();
-    }, 1000); // atraso em milissegundos
-  };
-=======
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   }
 
  
->>>>>>> a4f70a9 (todas as mudanças)
 
   return (
     <header className={`header ${isFading ? 'fade-out' : ''} sticky`}>
@@ -50,13 +39,8 @@ function Header() {
         <a href="#">Novidades</a>
       </div>
       <div className="buttons">
-<<<<<<< HEAD
-        <button className='login' onClick={handleLoginClick}>Entre</button> {/* Use a função handleLoginClick */}
-        <button className='cadastro' onClick={handleCadastroClick}>Cadastre-se <GoArrowRight /></button>
-=======
         <button className='login' onClick={handleLoginClick}>Entre</button>
         <button className='cadastro' onClick={handleLoginClick}>Cadastre-se <GoArrowRight /></button>
->>>>>>> a4f70a9 (todas as mudanças)
       </div>
       <div className="hamburguerHeader" onClick={toggleMenu}>
         <div className="iconImg"><TfiViewList/></div>
