@@ -1,22 +1,25 @@
 .inputs{
     width: 80%;
     margin: 16px auto;
-    margin-top: 32px;
 
     & input{
-        padding: 8px;
+        padding: 6px;
         width: 100%;
         margin: 0 auto 16px auto;
         border-radius: 4px;
         border: none;
         outline: none;
-        border: 2px solid rgb(163, 163, 163);
+        color: rgb(216, 216, 216);
+        background-color: #000;
+        border: 1px solid rgba(184, 184, 184, 0.151);
+        caret-color: rgb(255, 255, 255);
     }
 }
 
 .inputs label {
     display: block;
     text-align: left;
+    font-size: 14px;
     margin: 12px 0 0 0;
 }
 

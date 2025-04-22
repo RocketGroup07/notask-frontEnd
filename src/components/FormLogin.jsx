@@ -1,9 +1,26 @@
-import React from 'react'
-import Input from "../components/input.jsx"
-import ButtonLogin from "../components/ButtonLogin.jsx"
-import '../styles/formLogin.css'
+import React, { useState } from 'react';
+import Input from "../components/input.jsx";
+import ButtonLogin from "../components/ButtonLogin.jsx";
+import '../styles/formLogin.css';
+import { Link, useNavigate} from 'react-router-dom';
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
+
 
 function FormLogin() {
+    const [isFading, setIsFading] = useState(false);
+    const navigate = useNavigate();
+
+    const handleClick = (path, event) => {
+        event.preventDefault();
+        setIsFading(true);
+        NProgress.start();
+        setTimeout(() => {
+            navigate(path);
+            NProgress.done();
+        }, 1000); // atraso em milissegundos
+    };
+
     return (
         <form action="#" method="post" className='form-login'>
             <div className='text-content'>
@@ -23,16 +40,16 @@ function FormLogin() {
                     id="senha" />
             </div>
             <div className='link'>
-                <a href="#">Esqueceu a senha?</a>
+                <Link onClick={(event) => handleClick("/", event)}>Esqueceu a Senha?</Link>
             </div>
-            <ButtonLogin className="button" type="submit" value="Entrar" />
-            <span className='text-content'>Não possui uma conta?
-                <span className='link'>
-                    <a href="./pages/Cadastro.jsx">Crie uma!</a>
+            <ButtonLogin onClick={(event) => handleClick("../", event)} className="button" type="submit" value="Entrar" />
+            <span className='text-content font-size'>Não possui uma conta?
+                <span className='link font-size'>
+                    <Link onClick={(event) => handleClick('/Cadastro', event)}> Crie uma conta</Link>
                 </span>
             </span>
         </form>
-    )
+    );
 }
 
-export default FormLogin
+export default FormLogin;
