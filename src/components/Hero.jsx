@@ -8,6 +8,7 @@ import FadeContent from './FadeContent';
 import { useNavigate } from 'react-router-dom';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
+import ShinyText from './ShinyText';
 
 function Hero() {
     const navigate = useNavigate(); // Use useNavigate para obter a função de navegação
@@ -51,7 +52,7 @@ function Hero() {
                         />
                     </div>
                     <div className="hero-btn">
-                        <button onClick={handleLoginClick}>Começar <GoArrowRight className='icon' /></button>
+                        <button onClick={handleLoginClick}><ShinyText text="COMEÇAR" disabled={false} speed={2} className='custom-class' />  <GoArrowRight className='icon' /></button>
                     </div>
                 </div>
                 <div className="esquerda">

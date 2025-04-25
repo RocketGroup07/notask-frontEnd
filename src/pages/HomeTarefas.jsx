@@ -32,7 +32,7 @@ function HomeTarefas() {
       } catch (error) {
         console.error("Erro ao buscar tarefas:", error);
         alert("Erro ao buscar tarefas. Tente novamente.");
-        return
+        return 0;
       }
     };
 
