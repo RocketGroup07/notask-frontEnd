@@ -19,7 +19,7 @@ const style = {
   color: "white",
 };
 
-const baseUrl = "http://10.92.199.41:8080/tarefas/";
+const baseUrl = "http://10.92.199.39:8080/tarefas/";
 
 export default function ModalNovaTarefa({
   open,
@@ -29,8 +29,8 @@ export default function ModalNovaTarefa({
   const [nome, setNome] = React.useState("");
   const [descricao, setDescricao] = React.useState("");
   const [dataPrazo, setDataPrazo] = React.useState(""); // Campo para a data de prazo
-  const [tag, setTag] = React.useState("NAO_INICIADO")
-  const [prioridade, setPrioridade] = React.useState("")
+  const [tag, setTag] = React.useState("Selecione")
+  const [prioridade, setPrioridade] = React.useState("Selecione")
  
 
   const handleSalvar = async () => {
@@ -108,6 +108,7 @@ export default function ModalNovaTarefa({
         onChange={(e) => setTag(e.target.value)}
         
         >
+          <option value="Selecione">Selecione</option>
           <option value="NAO_INICIADO">Não iniciada</option>
           <option value="EM_ANDAMENTO">Em progresso</option>
           <option value="CONCLUIDO">Concluida</option>
@@ -118,6 +119,7 @@ export default function ModalNovaTarefa({
         onChange={(e) => setPrioridade(e.target.value)}
         
         >
+          <option value="Selecione">Selecione</option>
           <option value="ALTA">Alta</option>
           <option value="MEDIA">Media</option>
           <option value="BAIXA">Baixa</option>

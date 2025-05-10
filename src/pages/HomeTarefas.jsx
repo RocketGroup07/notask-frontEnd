@@ -13,7 +13,7 @@ import "../styles/HomeTarefas.css";
 import ModalNovaTarefa from "../components/ModalNovaTarefa";
 
 function HomeTarefas() {
-  const baseUrl = "http://10.92.199.41:8080/tarefas/";
+  const baseUrl = "http://10.92.199.39:8080/tarefas/";
   const [tarefas, setTarefas] = React.useState([]); // Estado para armazenar as tarefas
   const [modalAberto, setModalAberto] = React.useState(false);
   const tarefasAFazer = tarefas.filter((tarefa) => tarefa.tag === "NAO_INICIADO").length; //
