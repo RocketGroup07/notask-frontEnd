@@ -4,6 +4,7 @@ import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import axios from "axios";
+import '../styles/global.css';
 
 const style = {
   position: "absolute",
@@ -11,7 +12,7 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 700,
-  height: 400,
+  height: 500,
   bgcolor: "#1A1A1A",
   borderRadius: "10px",
   boxShadow: 24,
