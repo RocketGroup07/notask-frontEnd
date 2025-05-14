@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import '../styles/cardsApi.css';
 import axios from 'axios';
 import nProgress from 'nprogress';
-import Input from '../components/Input'
 import { useForm } from 'react-hook-form';
 
 const baseUrl = 'http://10.92.199.41:8080/tarefas/'
