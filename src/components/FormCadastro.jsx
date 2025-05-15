@@ -8,13 +8,10 @@ import { useForm } from 'react-hook-form';
 const baseURL = "http://10.92.199.41:8080/usuarios/";
 
 function FormCadastro() {
-    const { register, handleSubmit, watch } = useForm();
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const senha = watch("senha");
 
-    // Função para enviar os dados do formulário para a API
     const onSubmit = async (data) => {
-
-        console.log(data);
-
         try {
             const response = await axios.post(baseURL, {
                 nome: data.nome,
@@ -29,10 +26,16 @@ function FormCadastro() {
         }
     };
 
-    const senha = watch("senha");
+    const onError = (errors) => {
+        if (errors.nome) return alert(errors.nome.message);
+        if (errors.userName) return alert(errors.userName.message);
+        if (errors.email) return alert(errors.email.message);
+        if (errors.senha) return alert(errors.senha.message);
+        if (errors.confirmarSenha) return alert(errors.confirmarSenha.message);
+    }
 
     return (
-        <form className="form-cadastro" onSubmit={handleSubmit(onSubmit)}>
+        <form className="form-cadastro" onSubmit={handleSubmit(onSubmit, onError)}>
             <h1>Faça seu cadastro!</h1>
             <p>Preencha todos os campos abaixo:</p>
 
@@ -42,35 +45,41 @@ function FormCadastro() {
                         label="Nome: "
                         placeholder="Digite seu nome completo"
                         id="nome"
-                        register={register("nome")} />
+                        register={register("nome", { required: "O campo Nome é obrigatório" })}
+                    />
                     <Input
                         label="Nome de usuário: "
                         placeholder="Digite seu nome de usuário"
                         id="usuario"
-                        register={register("userName")} />
+                        register={register("userName", { required: "O campo Nome de usuário é obrigatório" })}
+                    />
                 </div>
                 <div className="flex">
                     <Input
                         label="Email: "
                         placeholder="Digite seu email"
                         id="email"
-                        register={register("email")} />
+                        register={register("email", { required: "O campo Email é obrigatório" })}
+                    />
                     <Input
                         type="password"
                         label="Senha: "
                         placeholder="Digite sua senha"
                         id="senha"
-                        register={register("senha", {
-                            required: "O campo é obrigatório", validate: (value) =>
-                                value === senha || "As senhas não coincidem",
-                        })} />
+                        register={register("senha", { required: "O campo Senha é obrigatório" })}
+                    />
                 </div>
                 <Input
                     type="password"
                     label="Confirmar senha: "
                     placeholder="Digite sua senha novamente"
                     id="confirmarSenha"
-                    register={register("senha", { required: "O campo é obrigatório" })} />
+                    register={register("confirmarSenha", {
+                        required: "O campo Confirmar senha é obrigatório",
+                        validate: (value) =>
+                            value === senha || "As senhas não coincidem",
+                    })}
+                />
             </div>
             <ButtonLogin className="button" type="submit" value="Cadastrar" />
         </form>
