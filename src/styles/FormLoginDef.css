@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.esquerdaLogin {
+    width: 50%;
+    height: 100vh;
+    background-color: white;
+
+}
+
+.imgLoginFundo {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.imgLoginFundo>img {
+    width: 100%;
+    max-width: 100vw;
+    max-height: 100vh;
+    border-radius: 0px 25px 25px 0px;
+    object-fit: cover;
+    /* ou 'contain' se quiser ver a imagem inteira */
+}
+
+.direitaLogin {
+    width: 50%;
+    height: 100vh;
+    background-color: white;
+}
+
+.titleLogin {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 20px;
+
+    & h1 {
+        color: black;
+        font-size: 4rem;
+    }
+}
+
+.contFormLoginD {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.contFormLoginDe {
+    height: 100vh;
+    margin: auto;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contFormLoginDef{
+    width: 100%;
+}

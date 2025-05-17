@@ -22,6 +22,15 @@ function Header() {
     }, 1000); // atraso em milissegundos
   };
 
+  const handleRegisterClick = () => {
+    setIsFading(true);
+    NProgress.start();
+    setTimeout(() => {
+      navigate('/cadastro');
+      NProgress.done();
+    }, 1000); // atraso em milissegundos
+  };
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   }
@@ -40,7 +49,7 @@ function Header() {
       </div>
       <div className="buttons">
         <button className='login' onClick={handleLoginClick}>Entre</button>
-        <button className='cadastro' onClick={handleLoginClick}>Cadastre-se <GoArrowRight /></button>
+        <button className='cadastro' onClick={handleRegisterClick}>Cadastre-se <GoArrowRight /></button>
       </div>
       <div className="hamburguerHeader" onClick={toggleMenu}>
         <div className="iconImg"><TfiViewList/></div>

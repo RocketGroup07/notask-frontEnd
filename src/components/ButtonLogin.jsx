@@ -1,4 +1,3 @@
-import React from 'react'
 import "./../styles/buttonForm.css"
 
 function ButtonLogin({ type, value, onClick, className }) {

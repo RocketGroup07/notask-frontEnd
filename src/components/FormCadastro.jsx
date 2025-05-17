@@ -49,7 +49,7 @@ function FormCadastro() {
                     />
                     <Input
                         label="Nome de usuário: "
-                        placeholder="Digite seu nome de usuário"
+                        placeholder="Digite seu usuário"
                         id="usuario"
                         register={register("userName", { required: "O campo Nome de usuário é obrigatório" })}
                     />
