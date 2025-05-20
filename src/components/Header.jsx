@@ -5,6 +5,7 @@ import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import { TfiViewList } from "react-icons/tfi";
 import MenuDrop from './menuDrop';
+import NavButton from './NavButton';
 
 NProgress.configure({ showSpinner: false, speed: 500 });
 
@@ -22,14 +23,7 @@ function Header() {
     }, 1000); // atraso em milissegundos
   };
 
-  const handleRegisterClick = () => {
-    setIsFading(true);
-    NProgress.start();
-    setTimeout(() => {
-      navigate('/cadastro');
-      NProgress.done();
-    }, 1000); // atraso em milissegundos
-  };
+  
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -48,8 +42,10 @@ function Header() {
         <a href="#">Novidades</a>
       </div>
       <div className="buttons">
-        <button className='login' onClick={handleLoginClick}>Entre</button>
-        <button className='cadastro' onClick={handleRegisterClick}>Cadastre-se <GoArrowRight /></button>
+        <NavButton className="login" to="/login">Entre</NavButton>
+        <NavButton className="cadastro" to="/cadastro">
+        Cadastre-se <GoArrowRight />
+      </NavButton>
       </div>
       <div className="hamburguerHeader" onClick={toggleMenu}>
         <div className="iconImg"><TfiViewList/></div>

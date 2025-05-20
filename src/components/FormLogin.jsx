@@ -7,13 +7,14 @@ import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
+import { to } from '@react-spring/web';
 
 const baseURL = "http://10.92.199.41:8080/usuarios/login";
 
-
-
 function FormLogin() {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const [isFading, setIsFading] = useState(false);
+    const navigate = useNavigate();
 
     const onSubmit = async (data) => {
         try {
@@ -24,11 +25,11 @@ function FormLogin() {
             const token = response.data;
             console.log("deu certo", data);
             if (token) {
-            localStorage.setItem('token', token); // Salva o token
-            // Redirecione ou faça outra ação aqui
-        } else {
-            alert("Token não recebido!");
-        }
+                localStorage.setItem('token', token); // Salva o token
+                // Redirecione ou faça outra ação aqui
+            } else {
+                alert("Token não recebido!");
+            }
         } catch (error) {
             console.error("Erro ao cadastrar usuário:", error);
             alert("Erro ao cadastrar usuário. Tente novamente.");
@@ -40,10 +41,16 @@ function FormLogin() {
         if (errors.senha) return alert(errors.senha.message);
     }
 
-
-    const [isFading, setIsFading] = useState(false);
-    const navigate = useNavigate();
-
+    // Função para navegação
+    const handleClick = (to, event) => {
+        event.preventDefault();
+        setIsFading(true);
+        NProgress.start();
+        setTimeout(() => {
+            navigate(to);
+            NProgress.done();
+        }, 1000);
+    };
 
     return (
         <form action="#" method="post" className='form-login' onSubmit={handleSubmit(onSubmit, onError)}>
@@ -51,8 +58,8 @@ function FormLogin() {
                 <Input
                     label="Email: "
                     placeholder="Digite seu email"
-                    id="email" 
-                    register={register("email", { required: "O campo Senha é obrigatório" })}/>
+                    id="email"
+                    register={register("email", { required: "O campo Senha é obrigatório" })} />
 
                 <Input
                     label="Senha: "
@@ -67,7 +74,7 @@ function FormLogin() {
             <ButtonLogin className="button" type="submit" value="Entrar" />
             <span className='text-content font-size'>Não possui uma conta?
                 <span className='link font-size'>
-                    <Link onClick={(event) => handleClick('/Cadastro', event)}> Crie uma conta</Link>
+                    <Link onClick={(event) => handleClick("/cadastro", event)}>Esqueceu a Senha?</Link>
                 </span>
             </span>
         </form>

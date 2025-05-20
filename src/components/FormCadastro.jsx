@@ -36,9 +36,6 @@ function FormCadastro() {
 
     return (
         <form className="form-cadastro" onSubmit={handleSubmit(onSubmit, onError)}>
-            <h1>Faça seu cadastro!</h1>
-            <p>Preencha todos os campos abaixo:</p>
-
             <div>
                 <div className="flex">
                     <Input
