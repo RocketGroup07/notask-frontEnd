@@ -4,6 +4,7 @@ import Input from './input';
 import ButtonLogin from './ButtonLogin';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
+import nProgress from 'nprogress';
 
 const baseURL = "http://10.92.199.41:8080/usuarios/";
 
