@@ -1,10 +1,11 @@
 import React from 'react'
-import FormLogin from '../components/FormLogin';
+import '../styles/global.css';
+import FormLoginDef from '../components/FormLoginDef';
 
 function Login() {
   return (
-    <div>
-        <FormLogin />
+    <div className="login-container">
+        <FormLoginDef/>
     </div>
   )
 }

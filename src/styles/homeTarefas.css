@@ -1,0 +1,159 @@
+* {
+  font-family: "neulis-sans", sans-serif;
+  font-style: normal;
+}
+
+.textContainer {
+  display: flex;
+  gap: 6px;
+}
+
+.iconText {
+  font-size: 2rem;
+}
+
+.textTitulo {
+  display: flex;
+  font-size: 2rem;
+  font-family: "neulis-sans", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  align-items: flex-end;
+  gap: 10px;
+}
+.textTitulo > p {
+  font-size: small;
+}
+
+.buttonText {
+  margin-right: 5rem;
+}
+
+.buttonText > button {
+  cursor: pointer;
+  font-weight: 300;
+  font-size: 0.8rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 13px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  gap: 3px;
+  transition: all 0.8s;
+
+  &:hover {
+    background-color: rgb(1, 82, 1);
+  }
+}
+
+.contTextButton {
+  margin-top: 5rem;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.custom-hr {
+  width: 99%;
+  /* Ajuste o tamanho horizontal */
+  height: 1px;
+  /* Ajuste a espessura */
+  background-color: #3e3e3e;
+  /* Cor do traço */
+  border: none;
+  /* Remove bordas padrão */
+  margin: 10px auto;
+  /* Centraliza e ajusta o espaçamento */
+}
+
+.contTarefas {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.cont-tarefaPen,
+.con-tarefaProgress,
+.cont-tarefaConcluida {
+  width: 19rem;
+}
+
+.tarefaDizer {
+  gap: 10px;
+  width: 100%;
+  justify-content: flex-start;
+  display: flex;
+  background-color: #1a1a1a;
+  padding: 10px;
+  align-items: center;
+}
+
+.tarefaDizer > h4 {
+  font-family: "neulis-sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.cont-tarefaCard {
+  display: flex;
+  margin-top: 20px;
+  width: 100%;
+  flex-direction: column;
+  gap: 10px;
+  display: flex;
+  margin-top: 20px;
+  width: 100%;
+  flex-direction: column;
+  gap: 10px;
+}
+.tarefaCard {
+  cursor: pointer;
+  width: 100%;
+  height: auto;
+  padding: 9px;
+  background-color: #1a1a1a;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.circle1 {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 100%;
+  background-color: red;
+}
+
+.circle2 {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 100%;
+  background-color: yellow;
+}
+.circle3 {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 100%;
+  background-color: green;
+}
+.MuiBox-root {
+  color: white;
+}
+.tarefaItem > p {
+  font-size: small;
+  font-weight: 300;
+}
+.tarefaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.tarefaItem > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

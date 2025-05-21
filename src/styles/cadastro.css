@@ -1,0 +1,12 @@
+
+.form-cadastro{
+    margin: auto;
+    width: 100%;
+    border-radius: 8px;
+    /* background: linear-gradient(0deg, #000000 60%, #5e5b5b); */
+    padding: 8px;
+    align-items: center;
+    text-align: center;
+    font-family: "neulis-sans", sans-serif;
+    color: rgb(0, 0, 0);
+}

@@ -1,0 +1,22 @@
+.contText {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.iconLarge {
+    font-size: 4rem;
+}
+
+.titulo {
+    margin-top: 6rem;
+}
+
+.titulo>h1 {
+    font-size: 4rem;
+}
+
+.contInputs {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,15 +1,45 @@
-form{
-    margin: auto;
-    width: 30%;
-    border-radius: 8px;
-    background-color: #ccc;
-    padding: 16px;
-    align-items: center;
-    text-align: center;
+@keyframes moveBackground {
+    0% {
+        background-position: 0% 55%;
+    }
+
+    100% {
+        background-position: 0% 45%;
+    }
 }
 
-.inputs{
-    display: flex;
-    flex-direction: column;
-    gap: 8px;   
+
+.form-login {
+    margin: auto;
+    width: 100%;
+    border-radius: 8px;
+    /* background: linear-gradient(0deg, #000000 60%, #5e5b5b); */
+    padding: 8px;
+    align-items: center;
+    text-align: center;
+    font-family: "neulis-sans", sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+h1{
+    color: rgb(216, 216, 216);
+}
+
+.font-size{
+    font-size: 0.8rem;
+}
+
+.link {
+    text-align: right;
+    width: 80%;
+    margin: 0 auto 24px auto;
+
+    & a {
+        text-decoration: none;
+        font-size: 0.8rem;
+        color: rgb(70, 70, 70);
+        text-decoration: underline;
+        transition: 0.2s ease;
+
+    }
 }

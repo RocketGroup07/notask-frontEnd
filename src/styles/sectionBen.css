@@ -1,45 +1,49 @@
 .section-ben {
-    display: flex;
-    margin-top: 82px;
-    width: 91%;
-    margin: auto;
-    justify-content: center;
+  display: flex;
+  margin-top: 82px;
+  width: 91%;
+  margin: auto;
+  justify-content: center;
+  flex-direction: column-reverse;
+  align-items: center;
 }
 
 .direitaSection {
-    width: 40%;
-
+    width: 100%;
 }
 
 .card {
-    background: linear-gradient(90deg, rgba(26, 26, 26, 1) 0%, rgba(51, 51, 51, 1) 100%);
-    padding: 20px;
-    display: flex;
-    border-radius: 16px;
-    width: 70%;
-    align-items: center;
-    gap: 10px;
-    justify-content: space-around;
-    color: white;
+  background: linear-gradient(
+    90deg,
+    rgba(26, 26, 26, 1) 0%,
+    rgba(51, 51, 51, 1) 100%
+  );
+  padding: 20px;
+  display: flex;
+  border-radius: 16px;
+  width: 70%;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-around;
+  color: white;
 }
 
 .card-container {
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
+  gap: 10px;
+  display: flex;
+  /* flex-direction: column; */
 }
 
 .esquerdaSection {
-    width: 50%;
-    display: flex;
-    height: auto;
+  width: 50%;
+  display: flex;
+  height: auto;
 }
 
 @media (max-width: 768px) {
-    .esquerdaSection {
-        width: 90%;
-        display: flex;
-        height: auto;
-    }
-
+  .esquerdaSection {
+    width: 90%;
+    display: flex;
+    height: auto;
+  }
 }
