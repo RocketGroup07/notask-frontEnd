@@ -11,9 +11,9 @@ import {
 } from "react-icons/fa";
 import "../styles/HomeTarefas.css";
 import ModalNovaTarefa from "../components/ModalNovaTarefa";
+import { api } from "../lib/axios";
 
 function HomeTarefas() {
-  const baseUrl = "http://10.92.199.39:8080/tarefas/";
   const [tarefas, setTarefas] = React.useState([]); // Estado para armazenar as tarefas
   const [modalAberto, setModalAberto] = React.useState(false);
   const tarefasAFazer = tarefas.filter((tarefa) => tarefa.tag === "NAO_INICIADO").length; //
@@ -24,7 +24,15 @@ function HomeTarefas() {
   useEffect(() => {
     const fetchTarefas = async () => {
       try {
-        const response = await axios.get(baseUrl); // Faz a requisição GET para a API
+        //const response = await api.get("tarefas/");
+        
+        const response = await axios.get("https://notask-dgb5egh2bndhdygj.eastus2-01.azurewebsites.net/tarefas/", {
+          headers: {
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzIiwibm9tZSI6InRlc3RlIiwiaWF0IjoxNzQ3Nzg1NjUyLCJleHAiOjE3NDc4NzIwNTJ9.A0iUghMGWaS7rTcShrmfHpsIq5a0XZ1Tiunb9IdpLXc"
+          }
+        })
+        
+        // Faz a requisição GET para a API
         console.log(response)
         console.log(tarefas)
 
