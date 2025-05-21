@@ -6,13 +6,14 @@ import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import nProgress from 'nprogress';
 
-const baseURL = "http://10.92.199.41:8080/usuarios/";
+const baseURL = "https://notask-dgb5egh2bndhdygj.eastus2-01.azurewebsites.net/usuarios/";
 
 function FormCadastro() {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const senha = watch("senha");
 
     const onSubmit = async (data) => {
+        nProgress.start()
         try {
             const response = await axios.post(baseURL, {
                 nome: data.nome,
@@ -21,6 +22,7 @@ function FormCadastro() {
                 senha: data.senha,
             });
             alert(`Usuário ${response.data.nome} cadastrado com sucesso!`);
+            nProgress.done()
         } catch (error) {
             console.error("Erro ao cadastrar usuário:", error);
             alert("Erro ao cadastrar usuário. Tente novamente.");
