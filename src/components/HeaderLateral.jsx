@@ -46,11 +46,11 @@ function HeaderLateral({children}) {
                 </div>
                 <div className="contIcons">
                     <div className="icons">
-                        <div >
-                        <BiEdit  className='largeIcon' onClick={handleTarefasClick}/>
-                        </div>
                         <div className="iconCasa"  onClick={handleHomeClick} > 
                             <BsFillHouseFill className="largeIcon" />
+                        </div>
+                        <div >
+                        <BiEdit  className='largeIcon' onClick={handleTarefasClick}/>
                         </div>
                         <div className="iconConfig">
                             <BsGearWide className="largeIcon" onClick={handleConfigClick} />
