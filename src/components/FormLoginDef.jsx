@@ -12,7 +12,7 @@ function FormLoginDef() {
 
             <div className="esquerdaLogin">
                 <div className="imgLoginFundo">
-                    <img src="../img/fundoLogin.png" alt="" />
+                    <img src="../img/imagemFundo.jpg" alt="" />
                 </div>
             </div>
             <div className="direitaLogin">
