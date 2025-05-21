@@ -3,8 +3,8 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import axios from "axios";
 import '../styles/global.css';
+import { api } from "../lib/axios";
 
 const style = {
   position: "absolute",
@@ -20,7 +20,6 @@ const style = {
   color: "white",
 };
 
-const baseUrl = "http://10.92.199.39:8080/tarefas/";
 
 export default function ModalNovaTarefa({
   open,
@@ -52,7 +51,7 @@ export default function ModalNovaTarefa({
     };
 
     try {
-      const response = await axios.post(baseUrl, novaTarefa); // Envia os dados para a API
+      const response = await api.post("tarefas/", novaTarefa); // Envia os dados para a API
       console.log("Tarefa criada com sucesso:", response.data);
       adicionarTarefa(response.data); // Atualiza a lista de tarefas no componente pai
       setNome("");
