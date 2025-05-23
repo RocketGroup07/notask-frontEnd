@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'; // Importado useNavigate
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import { TfiViewList } from "react-icons/tfi";
-import MenuDrop from './menuDrop';
+import MenuDrop from './MenuDrop';
 import NavButton from './NavButton';
 
 NProgress.configure({ showSpinner: false, speed: 500 });

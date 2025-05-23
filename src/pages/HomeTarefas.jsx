@@ -10,7 +10,7 @@ import {
   FaHourglassHalf,
   FaTrash,
 } from "react-icons/fa";
-import "../styles/HomeTarefas.css";
+import "../styles/homeTarefas.css";
 import ModalNovaTarefa from "../components/ModalNovaTarefa";
 import { api } from "../lib/axios";
 
