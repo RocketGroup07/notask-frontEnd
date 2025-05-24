@@ -111,16 +111,7 @@
   flex-direction: column;
   gap: 10px;
 }
-.tarefaCard {
-  cursor: pointer;
-  width: 100%;
-  height: auto;
-  padding: 9px;
-  background-color: #1a1a1a;
-  gap: 20px;
-  display: flex;
-  flex-direction: column;
-}
+
 .circle1 {
   width: 1rem;
   height: 1rem;
@@ -142,18 +133,4 @@
 }
 .MuiBox-root {
   color: white;
-}
-.tarefaItem > p {
-  font-size: small;
-  font-weight: 300;
-}
-.tarefaItem {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-}
-.tarefaItem > div {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }
