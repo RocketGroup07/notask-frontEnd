@@ -50,6 +50,9 @@
   color: white;
   cursor: pointer;
 }
+.iconHome{
+  cursor: pointer;
+}
 
 .largeIcon {
   font-size: 2rem;
