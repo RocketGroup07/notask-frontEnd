@@ -13,6 +13,7 @@ import {
 import "../styles/homeTarefas.css";
 import ModalNovaTarefa from "../components/ModalNovaTarefa";
 import { api } from "../lib/axios";
+import CardTarefa from "../components/CardTarefa";
 
 function HomeTarefas() {
   const [tarefas, setTarefas] = React.useState([]); // Estado para armazenar as tarefas
@@ -120,26 +121,14 @@ function HomeTarefas() {
               {tarefas
                 .filter((tarefa) => tarefa.tag === "NAO_INICIADO")
                 .map((tarefa) => (
-                  <div className="tarefaCard">
-                    {tarefas.length <= 0 && <p>sem tarefas</p>}
-
-                    <div key={tarefa.id} className="tarefaItem">
-                      <h4>{tarefa.nome}</h4>
-                      <p>{tarefa.descricao}</p>
-                      <p>Prioridade: {tarefa.prioridade}</p>
-                      <div>
-                        <p>
-                          <strong>Prazo:</strong> {tarefa.dataPrazo}
-                        </p>
-                        <div
-                          id="excluir"
-                          onClick={() => excluirTarefa(tarefa.id)}
-                        >
-                          <FaTrash />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <CardTarefa
+                    idTarefa={tarefa.id}
+                    nomeTarefa={tarefa.nome} 
+                    descricaotarefa={tarefa.descricao}
+                    prioridadeTarefa={tarefa.prioridade}
+                    dataPrazoTarefa={tarefa.dataPrazo}    
+                    excluirTarefa={excluirTarefa}            
+                  />
                 ))}
             </div>
           </div>
@@ -157,23 +146,14 @@ function HomeTarefas() {
               {tarefas
                 ?.filter((tarefa) => tarefa.tag === "EM_ANDAMENTO")
                 .map((tarefa) => (
-                  <div className="tarefaCard" key={tarefa.id}>
-                    {tarefas.length <= 0 && <p>sem tarefas</p>}
-                    <h4>{tarefa.nome}</h4>
-                    <p>{tarefa.descricao}</p>
-                    <p>{tarefa.prioridade}</p>
-                    <div>
-                      <p>
-                        <strong>Prazo:</strong> {tarefa.dataPrazo}
-                      </p>
-                      <div
-                        id="excluir"
-                        onClick={() => excluirTarefa(tarefa.id)}
-                      >
-                        <FaTrash />
-                      </div>
-                    </div>
-                  </div>
+                 <CardTarefa
+                    idTarefa={tarefa.id}
+                    nomeTarefa={tarefa.nome} 
+                    descricaotarefa={tarefa.descricao}
+                    prioridadeTarefa={tarefa.prioridade}
+                    dataPrazoTarefa={tarefa.dataPrazo}    
+                    excluirTarefa={excluirTarefa}            
+                  />
                 ))}
             </div>
           </div>
@@ -191,26 +171,14 @@ function HomeTarefas() {
               {tarefas
                 .filter((tarefa) => tarefa.tag === "CONCLUIDO")
                 .map((tarefa) => (
-                  <div className="tarefaCard">
-                    {tarefas.length <= 0 && <p>sem tarefas</p>}
-
-                    <div key={tarefa.id} className="tarefaItem">
-                      <h4>{tarefa.nome}</h4>
-                      <p>{tarefa.descricao}</p>
-                      <p>{tarefa.prioridade}</p>
-                      <div>
-                        <p>
-                          <strong>Prazo:</strong> {tarefa.dataPrazo}
-                        </p>
-                        <div
-                          id="excluir"
-                          onClick={() => excluirTarefa(tarefa.id)}
-                        >
-                          <FaTrash />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <CardTarefa
+                    idTarefa={tarefa.id}
+                    nomeTarefa={tarefa.nome} 
+                    descricaotarefa={tarefa.descricao}
+                    prioridadeTarefa={tarefa.prioridade}
+                    dataPrazoTarefa={tarefa.dataPrazo}    
+                    excluirTarefa={excluirTarefa}            
+                  />
                 ))}
             </div>
           </div>
