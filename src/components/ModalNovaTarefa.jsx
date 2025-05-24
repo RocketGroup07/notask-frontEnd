@@ -31,7 +31,11 @@ export default function ModalNovaTarefa({
 }) {
   const [nome, setNome] = React.useState("");
   const [descricao, setDescricao] = React.useState("");
-  const [dataPrazo, setDataPrazo] = React.useState("");
+  const [dataPrazo, setDataPrazo] = React.useState(() => {
+    const hoje = new Date();
+     hoje.setDate(hoje.getDate() + 1);
+    return hoje.toISOString().split('T')[0]; // formato YYYY-MM-DD
+  });
   const [tag, setTag] = React.useState("Selecione");
   const [prioridade, setPrioridade] = React.useState("Selecione");
 
@@ -54,7 +58,7 @@ export default function ModalNovaTarefa({
   };
 
   const handleSalvar = async () => {
-    if (!nome.trim() || !descricao.trim() || !dataPrazo.trim()) {
+    if (!nome.trim()) {
       setToastType('error');
       showToast('error');
       return;
