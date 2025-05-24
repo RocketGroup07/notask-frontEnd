@@ -42,15 +42,12 @@ function HeaderLateral({children}) {
         <div className="ContHeader">
             <div className='lateral'>
                 <div className="iconHome">
-                    <img src="./img/notask - logosvg.svg" alt="" />
+                    <img src="./img/notask - logosvg.svg" alt="" onClick={handleHomeClick} />
                 </div>
                 <div className="contIcons">
                     <div className="icons">
-                        <div className="iconCasa"  onClick={handleHomeClick} > 
+                        <div className="iconCasa"  onClick={handleTarefasClick} > 
                             <BsFillHouseFill className="largeIcon" />
-                        </div>
-                        <div >
-                        <BiEdit  className='largeIcon' onClick={handleTarefasClick}/>
                         </div>
                         <div className="iconConfig">
                             <BsGearWide className="largeIcon" onClick={handleConfigClick} />
