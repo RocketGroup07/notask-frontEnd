@@ -1,6 +1,7 @@
 import { FaTrash, FaCalendar } from "react-icons/fa";
 import { FiAlignLeft } from "react-icons/fi";
 import "../styles/cardTarefa.css";
+
 function CardTarefa({
   idTarefa,
   nomeTarefa,
@@ -8,22 +9,33 @@ function CardTarefa({
   prioridadeTarefa,
   dataPrazoTarefa,
   excluirTarefa,
+  draggable,      // NOVO: para ativar drag
+  onDragStart,    // NOVO: evento que dispara no início do drag
 }) {
-  // block : none
-  let imgUrlPrioridade = ""
+  // Definindo a URL da imagem de prioridade
+  let imgUrlPrioridade = "";
 
-  if (prioridadeTarefa == "ALTA") {
-    imgUrlPrioridade = "../img/Ativo 4cores.png"
-  } else if (prioridadeTarefa == "MEDIA") {
-    imgUrlPrioridade = "../img/Ativo 5cores.png"
-  } else if (prioridadeTarefa == "BAIXA") {
-    imgUrlPrioridade = "../img/Ativo 3cores.png"
+  if (prioridadeTarefa === "ALTA") {
+    imgUrlPrioridade = "../img/Ativo 4cores.png";
+  } else if (prioridadeTarefa === "MEDIA") {
+    imgUrlPrioridade = "../img/Ativo 5cores.png";
+  } else if (prioridadeTarefa === "BAIXA") {
+    imgUrlPrioridade = "../img/Ativo 3cores.png";
   }
+
   return (
-    <div className="tarefaCard">
+    <div
+      className="tarefaCard"
+      draggable={draggable}
+      onDragStart={onDragStart}
+    >
       <div className="tarefaItem">
         <div className="flex2 mbC">
-          <img className="imgTagPrioridade" src={imgUrlPrioridade} alt="url prioridade" />
+          <img
+            className="imgTagPrioridade"
+            src={imgUrlPrioridade}
+            alt={`Prioridade ${prioridadeTarefa}`}
+          />
           <div
             className="excluir"
             id="excluir"
@@ -43,16 +55,16 @@ function CardTarefa({
           ) : null}
         </div>
         <div className="flex2">
-        <div className="prioridadeCard">
-          <p className="prioridade">Prioridade: {prioridadeTarefa}
-          </p>
-        </div>
-        <div className="dataPrazoCard">
-          <p>
-            {dataPrazoTarefa ? (<p><FaCalendar /> {dataPrazoTarefa}</p>) : null}
-          </p>
-        </div>
-          
+          <div className="prioridadeCard">
+            <p className="prioridade">Prioridade: {prioridadeTarefa}</p>
+          </div>
+          <div className="dataPrazoCard">
+            {dataPrazoTarefa ? (
+              <p>
+                <FaCalendar /> {dataPrazoTarefa}
+              </p>
+            ) : null}
+          </div>
         </div>
       </div>
     </div>
