@@ -1,4 +1,4 @@
-import { FaTrash } from "react-icons/fa";
+import { FaTrash, FaCalendar } from "react-icons/fa";
 import { FiAlignLeft } from "react-icons/fi";
 import "../styles/cardTarefa.css";
 function CardTarefa({
@@ -10,9 +10,28 @@ function CardTarefa({
   excluirTarefa,
 }) {
   // block : none
+  let imgUrlPrioridade = ""
+
+  if (prioridadeTarefa == "ALTA") {
+    imgUrlPrioridade = "../img/Ativo 4cores.png"
+  } else if (prioridadeTarefa == "MEDIA") {
+    imgUrlPrioridade = "../img/Ativo 5cores.png"
+  } else if (prioridadeTarefa == "BAIXA") {
+    imgUrlPrioridade = "../img/Ativo 3cores.png"
+  }
   return (
     <div className="tarefaCard">
-      <div key={idTarefa} className="tarefaItem">
+      <div className="tarefaItem">
+        <div className="flex2 mbC">
+          <img className="imgTagPrioridade" src={imgUrlPrioridade} alt="url prioridade" />
+          <div
+            className="excluir"
+            id="excluir"
+            onClick={() => excluirTarefa(idTarefa)}
+          >
+            <FaTrash className="iconLixo" />
+          </div>
+        </div>
         <div className="titleCard">
           <h4>{nomeTarefa}</h4>
         </div>
@@ -23,21 +42,17 @@ function CardTarefa({
             </div>
           ) : null}
         </div>
+        <div className="flex2">
         <div className="prioridadeCard">
           <p className="prioridade">Prioridade: {prioridadeTarefa}
           </p>
         </div>
-        <div className="flex2">
+        <div className="dataPrazoCard">
           <p>
-            <strong>Prazo:</strong> {dataPrazoTarefa}
+            {dataPrazoTarefa ? (<p><FaCalendar /> {dataPrazoTarefa}</p>) : null}
           </p>
-          <div
-            className="excluir"
-            id="excluir"
-            onClick={() => excluirTarefa(idTarefa)}
-          >
-            <FaTrash className="iconLixo" />
-          </div>
+        </div>
+          
         </div>
       </div>
     </div>
