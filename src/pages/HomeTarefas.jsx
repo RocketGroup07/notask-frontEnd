@@ -14,6 +14,7 @@ import "../styles/homeTarefas.css";
 import ModalNovaTarefa from "../components/ModalNovaTarefa";
 import { api } from "../lib/axios";
 import CardTarefa from "../components/CardTarefa";
+import ColunaTarefa from "../components/ColunaTarefa";
 
 function HomeTarefas() {
   const [tarefas, setTarefas] = React.useState([]); // Estado para armazenar as tarefas
@@ -53,8 +54,8 @@ function HomeTarefas() {
         })
 
         // Faz a requisição GET para a API
-        console.log(response)
-        console.log(tarefas)
+        console.log("Resposta", response.data)
+        console.log("Tarefas", tarefas)
 
         setTarefas(response.data != "" ? response.data : []); // Atualiza o estado com as tarefas retornadas
       } catch (error) {
@@ -88,125 +89,125 @@ function HomeTarefas() {
   return (
     <div>
       <Toast.Provider swipeDirection="right">
-      <HeaderLateral>
-        <div className="contTextButton">
-          <div className="textContainer">
-            <div className="iconText">
-              <BsPencilSquare />
-            </div>
-            <div className="textTitulo">
-              <h3>Minhas tarefas</h3>
-              <p>{tarefas[0]?.usuario?.username || ""}</p>
-            </div>
-          </div>
-          <div className="buttonText">
-            <button onClick={() => setModalAberto(true)}>
-              <FaPlus /> Nova Tarefa
-            </button>
-          </div>
-        </div>
-        <hr className="custom-hr" />
-
-        <div className="contTarefas">
-          {/* Tarefas a fazer */}
-          <div className="cont-tarefaPen">
-            <div className="tarefaDizer">
-              <div>
-                <FaRegHourglass />
+        <HeaderLateral>
+          <div className="contTextButton">
+            <div className="textContainer">
+              <div className="iconText">
+                <BsPencilSquare />
               </div>
-              <h4>A fazer ({tarefasAFazer}) </h4>
-              <div className="circle1"></div>
-            </div>
-            <div className="cont-tarefaCard">
-              {tarefas
-                .filter((tarefa) => tarefa.tag === "NAO_INICIADO")
-                .map((tarefa) => (
-                  <CardTarefa
-                    idTarefa={tarefa.id}
-                    nomeTarefa={tarefa.nome} 
-                    descricaotarefa={tarefa.descricao}
-                    prioridadeTarefa={tarefa.prioridade}
-                    dataPrazoTarefa={tarefa.dataPrazo}    
-                    excluirTarefa={excluirTarefa}            
-                  />
-                ))}
-            </div>
-          </div>
-
-          {/* Tarefas em progresso */}
-          <div className="con-tarefaProgress">
-            <div className="tarefaDizer">
-              <div>
-                <FaHourglassHalf />
+              <div className="textTitulo">
+                <h3>Minhas tarefas</h3>
+                <p>{tarefas[0]?.usuario?.username || ""}</p>
               </div>
-              <h4>Em progresso ({tarefasEmAndamento}) </h4>
-              <div className="circle2"></div>
             </div>
-            <div className="cont-tarefaCard">
-              {tarefas
-                ?.filter((tarefa) => tarefa.tag === "EM_ANDAMENTO")
-                .map((tarefa) => (
-                 <CardTarefa
-                    idTarefa={tarefa.id}
-                    nomeTarefa={tarefa.nome} 
-                    descricaotarefa={tarefa.descricao}
-                    prioridadeTarefa={tarefa.prioridade}
-                    dataPrazoTarefa={tarefa.dataPrazo}    
-                    excluirTarefa={excluirTarefa}            
-                  />
-                ))}
+            <div className="buttonText">
+              <button onClick={() => setModalAberto(true)}>
+                <FaPlus /> Nova Tarefa
+              </button>
             </div>
           </div>
+          <hr className="custom-hr" />
 
-          {/* Tarefas concluídas */}
-          <div className="cont-tarefaConcluida">
-            <div className="tarefaDizer">
-              <div>
-                <FaHourglass />{" "}
+          <div className="contTarefas">
+            {/* Tarefas a fazer */}
+            <div className="cont-tarefaPen">
+              <ColunaTarefa
+                ampulhetaIcon={<FaRegHourglass />}
+                titleColuna={"A fazer"}
+                tarefasAFazerQtd={tarefasAFazer}
+                circle={"circle1"}
+              />
+              <div className="cont-tarefaCard">
+                {tarefas
+                  .filter((tarefa) => tarefa.tag === "NAO_INICIADO")
+                  .map((tarefa) => (
+                    <CardTarefa
+                      key={tarefa.id}
+                      idTarefa={tarefa.id}
+                      nomeTarefa={tarefa.nome}
+                      descricaotarefa={tarefa.descricao}
+                      prioridadeTarefa={tarefa.prioridade}
+                      dataPrazoTarefa={tarefa.dataPrazo}
+                      excluirTarefa={excluirTarefa}
+                    />
+                  ))}
               </div>
-              <h4>Concluído ({tarefasConcluidas}) </h4>
-              <div className="circle1"></div>
             </div>
-            <div className="cont-tarefaCard">
-              {tarefas
-                .filter((tarefa) => tarefa.tag === "CONCLUIDO")
-                .map((tarefa) => (
-                  <CardTarefa
-                    idTarefa={tarefa.id}
-                    nomeTarefa={tarefa.nome} 
-                    descricaotarefa={tarefa.descricao}
-                    prioridadeTarefa={tarefa.prioridade}
-                    dataPrazoTarefa={tarefa.dataPrazo}    
-                    excluirTarefa={excluirTarefa}            
-                  />
-                ))}
+
+            {/* Tarefas em progresso */}
+            <div className="con-tarefaProgress">
+              <ColunaTarefa
+                ampulhetaIcon={<FaHourglassHalf />}
+                titleColuna={"Em andamento"}
+                tarefasAFazerQtd={tarefasEmAndamento}
+                circle={"circle2"}
+              />
+              <div className="cont-tarefaCard">
+                {tarefas
+                  ?.filter((tarefa) => tarefa.tag === "EM_ANDAMENTO")
+                  .map((tarefa) => (
+                    <CardTarefa
+                      key={tarefa.id}
+                      idTarefa={tarefa.id}
+                      nomeTarefa={tarefa.nome}
+                      descricaotarefa={tarefa.descricao}
+                      prioridadeTarefa={tarefa.prioridade}
+                      dataPrazoTarefa={tarefa.dataPrazo}
+                      excluirTarefa={excluirTarefa}
+                    />
+                  ))}
+              </div>
+            </div>
+
+            {/* Tarefas concluídas */}
+            <div className="cont-tarefaConcluida">
+              <ColunaTarefa
+                ampulhetaIcon={<FaHourglass />}
+                titleColuna={"Concluida"}
+                tarefasAFazerQtd={tarefasConcluidas}
+                circle={"circle3"}
+              />
+              <div className="cont-tarefaCard">
+                {tarefas
+                  .filter((tarefa) => tarefa.tag === "CONCLUIDO")
+                  .map((tarefa) => (
+                    <CardTarefa
+                      key={tarefa.id}
+                      idTarefa={tarefa.id}
+                      nomeTarefa={tarefa.nome}
+                      descricaotarefa={tarefa.descricao}
+                      prioridadeTarefa={tarefa.prioridade}
+                      dataPrazoTarefa={tarefa.dataPrazo}
+                      excluirTarefa={excluirTarefa}
+                    />
+                  ))}
+              </div>
             </div>
           </div>
-        </div>
 
-        <ModalNovaTarefa
-          open={modalAberto}
-          handleClose={() => setModalAberto(false)}
-          adicionarTarefa={adicionarTarefa}
-        />
-      </HeaderLateral>
-      <Toast.Root
-              className={`ToastRoot ${toastType}`}
-              open={toastOpen}
-              onOpenChange={setToastOpen}
-            >
-              <Toast.Title className="ToastTitle">
-                {toastType === 'success' ? 'Sucesso!' : 'Erro!'}
-              </Toast.Title>
-              <Toast.Description className="ToastDescription">
-                {toastType === 'success'
-                  ? 'Tarefa apagada com sucesso!'
-                  : 'Erro ao apagar tarefa!'}
-              </Toast.Description>
-              <Toast.Close className="ToastClose">×</Toast.Close>
-            </Toast.Root>
-            <Toast.Viewport className="ToastViewport" />
-          </Toast.Provider>
+          <ModalNovaTarefa
+            open={modalAberto}
+            handleClose={() => setModalAberto(false)}
+            adicionarTarefa={adicionarTarefa}
+          />
+        </HeaderLateral>
+        <Toast.Root
+          className={`ToastRoot ${toastType}`}
+          open={toastOpen}
+          onOpenChange={setToastOpen}
+        >
+          <Toast.Title className="ToastTitle">
+            {toastType === 'success' ? 'Sucesso!' : 'Erro!'}
+          </Toast.Title>
+          <Toast.Description className="ToastDescription">
+            {toastType === 'success'
+              ? 'Tarefa apagada com sucesso!'
+              : 'Erro ao apagar tarefa!'}
+          </Toast.Description>
+          <Toast.Close className="ToastClose">×</Toast.Close>
+        </Toast.Root>
+        <Toast.Viewport className="ToastViewport" />
+      </Toast.Provider>
     </div>
   );
 }
