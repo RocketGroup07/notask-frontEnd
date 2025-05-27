@@ -1,19 +1,7 @@
-@keyframes moveBackground {
-    0% {
-        background-position: 0% 55%;
-    }
-
-    100% {
-        background-position: 0% 45%;
-    }
-}
-
-
 .form-login {
     margin: auto;
     width: 100%;
     border-radius: 8px;
-    /* background: linear-gradient(0deg, #000000 60%, #5e5b5b); */
     padding: 8px;
     align-items: center;
     text-align: center;
@@ -23,6 +11,10 @@
 
 h1{
     color: rgb(216, 216, 216);
+}
+
+.text-content .link{
+    margin-left: 0.3rem;
 }
 
 .font-size{
@@ -40,6 +32,5 @@ h1{
         color: rgb(70, 70, 70);
         text-decoration: underline;
         transition: 0.2s ease;
-
     }
 }

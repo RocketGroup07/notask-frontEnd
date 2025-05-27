@@ -33,11 +33,26 @@ function ConfigUser() {
                     <div className="icon"><BsGearWide className='iconLarge' /></div>
                     <div className="titulo"><h1>Configurações</h1></div>
                 </div>
+
                 <div className="contInputs">
-                    <label htmlFor="">Nome</label>
-                    <input type="text" placeholder='Nome' value={nome} />
-                    <input type="text" placeholder='Nome' value={email} />
-                    <input type="password"value={senha} />
+                    <div className="contInputItem">
+                        <label htmlFor="">Nome</label>
+                        <input type="text" placeholder='{Nome}' value={nome} />
+                        <a href="">Alterar Username</a>
+                    </div>
+
+                    <div className="contInputItem">
+                        <label htmlFor="">E-mail</label>
+                        <input type="text" placeholder='{Email}' value={email} />
+                    </div>
+
+                    <div className="contInputItem">
+                        <label htmlFor="">Senha</label>
+                        <input type="password" value={senha} placeholder='{Senha}' disabled />
+                        <a href="">Alterar senha</a>
+                    </div>
+
+                   
                 </div>
             </HeaderLateral>
         </div>

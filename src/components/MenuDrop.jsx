@@ -1,8 +1,8 @@
-import React from 'react';
 import { GoArrowRight } from "react-icons/go"; // Adicionando a importação do GoArrowRight
 import { CgHome, CgLayoutGridSmall, CgAdd } from "react-icons/cg";
+import NavButton from './NavButton';
 
-function MenuDrop({ isOpen, handleLoginClick }) {
+function MenuDrop({ isOpen }) {
   return (
     <div className={`menu-drop ${isOpen ? 'open' : ''}`}>
       <div className="abaLinksMobile">
@@ -13,8 +13,10 @@ function MenuDrop({ isOpen, handleLoginClick }) {
       
       
       <div className="buttons">
-        <button className='login' onClick={handleLoginClick}>Entre</button>
-        <button className='cadastro' onClick={handleLoginClick}>Cadastre-se <GoArrowRight /></button>
+        <NavButton className="login" to="/login">Entre</NavButton>
+        <NavButton className="cadastro" to="/cadastro">
+        Cadastre-se <GoArrowRight />
+      </NavButton>
       </div>
     </div>
   );

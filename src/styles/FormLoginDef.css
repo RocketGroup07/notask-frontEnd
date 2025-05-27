@@ -63,3 +63,18 @@
 .contFormLoginDef{
     width: 100%;
 }
+
+@media (max-width: 768px) {
+    .esquerdaLogin {
+        display: none;
+    }
+
+    .direitaLogin {
+        width: 100%;
+
+    }
+    
+    .contFormLoginDe {
+        width: 100%;
+    }
+}

@@ -19,4 +19,54 @@
 .contInputs {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.contInputItem {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.contInputItem input {
+    background-color: rgb(46, 46, 46);
+    width: 55%;
+    height: 2.5rem;
+    border-radius: 5px;
+    border: none;
+    padding: 0 0.8rem;
+}
+
+.contInputItem a {
+    color: rgb(0, 107, 0);
+    text-decoration: none;
+}
+
+.contInputs label {
+    font-size: larger;
+
+}
+
+@media (max-width: 768px) {
+
+    .iconLarge {
+        font-size: 2rem;
+    }
+
+    .titulo {
+        margin-top: 3rem;
+    }
+
+    .titulo>h1 {
+        font-size: 2rem;
+    }
+
+    .contInputs {
+        width: 100%;
+    }
+
+    .contInputItem input {
+        width: 100%;
+    }
 }

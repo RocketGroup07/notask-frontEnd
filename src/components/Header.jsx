@@ -10,26 +10,12 @@ import NavButton from './NavButton';
 NProgress.configure({ showSpinner: false, speed: 500 });
 
 function Header() {
-  const navigate = useNavigate(); // useNavigate para obter a função de navegação
-  const [isFading, setIsFading] = useState(false);
+  const [isFading] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const handleLoginClick = () => {
-    setIsFading(true);
-    NProgress.start();
-    setTimeout(() => {
-      navigate('/login');
-      NProgress.done();
-    }, 1000); // atraso em milissegundos
-  };
-
-  
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   }
-
- 
 
   return (
     <header className={`header ${isFading ? 'fade-out' : ''} sticky`}>
@@ -50,7 +36,7 @@ function Header() {
       <div className="hamburguerHeader" onClick={toggleMenu}>
         <div className="iconImg"><TfiViewList/></div>
       </div>
-      <MenuDrop isOpen={isMenuOpen} handleLoginClick={handleLoginClick} />
+      <MenuDrop isOpen={isMenuOpen} />
     </header>
   );
 }

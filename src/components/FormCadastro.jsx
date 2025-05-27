@@ -2,7 +2,7 @@ import '../styles/global.css';
 import '../styles/cadastro.css';
 import Input from './input';
 import ButtonLogin from './ButtonLogin';
-import {useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import * as React from 'react';
 import * as Toast from '@radix-ui/react-toast';
@@ -56,16 +56,20 @@ function FormCadastro() {
     };
 
     const onError = (errors) => {
-        if (errors.confirmarSenha) {
+        // Se o erro for de validação das senhas, mostra mensagem específica
+        if (errors.confirmarSenha && errors.confirmarSenha.type === "validate") {
+            setToastType('error');
             showToast(errors.confirmarSenha.message, 'error');
-        } else if (errors.nome) {
-            showToast(errors.nome.message, 'error');
-        } else if (errors.userName) {
-            showToast(errors.userName.message, 'error');
-        } else if (errors.email) {
-            showToast(errors.email.message, 'error');
-        } else if (errors.senha) {
-            showToast(errors.senha.message, 'error');
+        } else if (
+            errors.nome ||
+            errors.userName ||
+            errors.email ||
+            errors.senha ||
+            errors.confirmarSenha
+        ) {
+            // Se qualquer campo obrigatório estiver vazio, mostra mensagem genérica
+            setToastType('error');
+            showToast('Todos os campos são obrigatórios!', 'error');
         } else {
             showToast('Há algo de errado no seu cadastro!', 'error');
         }
@@ -95,27 +99,27 @@ function FormCadastro() {
                                 label="Email: "
                                 placeholder="Digite seu email"
                                 id="email"
-                                register={register("email", { 
-                                required: "O campo Email é obrigatório" ,
-                                pattern: {
-                                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                                    message: "Digite um email válido"
-                                }
-                            })}
+                                register={register("email", {
+                                    required: "O campo Email é obrigatório",
+                                    pattern: {
+                                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                        message: "Digite um email válido"
+                                    }
+                                })}
                             />
                             <Input
                                 type="password"
                                 label="Senha: "
                                 placeholder="Digite sua senha"
                                 id="senha"
-                                register={register("senha", { 
+                                register={register("senha", {
                                     required: "O campo Senha é obrigatório",
                                     minLength: {
                                         value: 6,
                                         message: "A senha precisa ter no minímo 6 caracteres"
                                     }
 
-                                 })}
+                                })}
                             />
                         </div>
                         <Input
